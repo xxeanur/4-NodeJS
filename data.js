@@ -26,7 +26,7 @@ class data {
     async updateBlog(blogModel) {
         try {
             let addToDate = (await db.table('blogs').get(blogModel.id).pluck('addToDate').run(await conn)).addToDate;
-            blogModel.addToDate = addToDate.addToDate;
+            blogModel.addToDate = addToDate;
             await db.table('blogs').update(blogModel).run(await conn);
         } catch (error) {
             console.log("güncellenirken hata olustu", error);
